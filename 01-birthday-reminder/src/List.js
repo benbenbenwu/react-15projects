@@ -1,11 +1,21 @@
 import React from 'react';
 
-const List = () => {
+const List = ({ people }) => {
+  const personArray = people.map(({ id, name, age, image }) => (
+    <article key={id} className='person'>
+      <img src={image} alt={name} />
+      <div>
+        <h4>{name}</h4>
+        <p>{age} years</p>
+      </div>
+    </article>
+  ))
   return (
     <>
-      <h2>list component</h2>
+      {personArray}
     </>
   );
-};
+}
+
 
 export default List;
